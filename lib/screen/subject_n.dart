@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gpa_calculator/screen/gpa_calculator.dart';
 import 'package:gpa_calculator/widget/Button_Container.dart';
-import 'package:google_fonts/google_fonts.dart' show GoogleFonts;
+
 
 class SubjectInputScreen extends StatelessWidget {
   final TextEditingController _subjectCountController = TextEditingController();
@@ -14,13 +14,10 @@ class SubjectInputScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: const Color(0xff37364e),
         centerTitle: true,
-        title:  Text(
+        title: const Text(
           "GPA Calculator",
-          style: GoogleFonts.pacifico(
-        textStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.w500 ),
+          style:   TextStyle(fontSize: 20, fontWeight: FontWeight.w500 , fontFamily: 'pacifico' ),
           ),
-
-        ),
       ),
       body:Container(
     color: const Color(0xff222942),
@@ -31,9 +28,7 @@ class SubjectInputScreen extends StatelessWidget {
 
           children: [
             TextField(
-              style: GoogleFonts.anticSlab(
-                textStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.w200 ),
-              ),
+              style:  const TextStyle(fontSize: 20, fontWeight: FontWeight.w200 , fontFamily: 'anticSlab'),
               textAlign: TextAlign.center,
               controller: _subjectCountController,
               keyboardType: TextInputType.number,
@@ -55,25 +50,23 @@ class SubjectInputScreen extends StatelessWidget {
                   showDialog(
                     context: context,
                     builder: (context) => AlertDialog(
-                      title:  Text('Error' ,
-                        style: GoogleFonts.caveat(
-                      textStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.w300 ),
-                    ),),
+                      title:  const Text('Error' ,
+                      style:  TextStyle(fontSize: 20, fontWeight: FontWeight.w300 ,fontFamily: 'caveat' ),
+                      ),
                       content: const Text('You should enter number of your subjects'),
                       actions: [
                         TextButton(
                           onPressed: () => Navigator.pop(context),
                           child:
-                            Text('OK',
-                              style: GoogleFonts.playball(
-                                textStyle: const TextStyle(
+                          const Text('OK',
+                              style:   TextStyle(
                                   fontSize: 20,
                                   fontWeight: FontWeight.w300 ,
                                   color: Color(0xffffffff),
+                                  fontFamily: 'playball'
                                 ),
                               ),
                             ),
-                        ),
                       ],
                     ),
                   );

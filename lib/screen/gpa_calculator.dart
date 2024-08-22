@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import '../widget/Button_Container.dart';
 
 class GPA_Calculator extends StatefulWidget {
@@ -88,12 +87,11 @@ class _GPACalculator extends State<GPA_Calculator> {
         appBar: AppBar(
         backgroundColor: const Color(0xff333244),
     centerTitle: true,
-    title:  Text(
+    title:  const Text(
           "GPA Calculator",
-          style: GoogleFonts.pacifico(
-            textStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.w500 ),
+          style:  TextStyle(fontSize: 20, fontWeight: FontWeight.w500 ,fontFamily: 'pacifico' ),
           ),
-        ),
+
     ),
       body: Container(
     color: const Color(0xff242942),
@@ -112,9 +110,8 @@ class _GPACalculator extends State<GPA_Calculator> {
                         Expanded(
                           child: TextField(
                             controller: markControllers[index],
-                            style: GoogleFonts.anticSlab(
-                              textStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.w300 ),
-                            ),
+                            style:  const TextStyle(fontSize: 20, fontWeight: FontWeight.w300 , fontFamily: 'anticSlab' ),
+
                             textAlign: TextAlign.center,
                             decoration: const InputDecoration(labelText: 'Mark'),
                             keyboardType: TextInputType.number,
@@ -124,9 +121,8 @@ class _GPACalculator extends State<GPA_Calculator> {
                         Expanded(
                           child: TextField(
                             controller: creditControllers[index],
-                            style: GoogleFonts.anticSlab(
-                              textStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.w300 ),
-                            ),
+                            style:  const TextStyle(fontSize: 20, fontWeight: FontWeight.w300 , fontFamily: 'anticSlab' ),
+
                             textAlign: TextAlign.center,
                             decoration: const InputDecoration(labelText: 'Credits'),
                             keyboardType: TextInputType.number,
@@ -146,23 +142,23 @@ class _GPACalculator extends State<GPA_Calculator> {
                 showDialog(
                   context: context,
                   builder: (context) => AlertDialog(
-                    title:  Text('GPA' ,  style: GoogleFonts.pacifico(
-                      textStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.w300 ),
-                    ),),
+                    title: const Text('GPA' ,
+                      style:   TextStyle(fontSize: 20, fontWeight: FontWeight.w300  , fontFamily: 'pacifico'),
+                    ),
                     content: Text('$gpa\n'),
                     actions: [
                       TextButton(
                         onPressed: () => Navigator.pop(context),
-                        child:  Text('OK',
-                        style: GoogleFonts.playball(
-                          textStyle: const TextStyle(
+                        child: const Text('OK',
+                        style:   TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.w300 ,
                             color: Color(0xffFFFFFF),
+                              fontFamily: 'playball'
                             ),
                         ),
                         ),
-                      ),
+
                     ],
                   ),
                 );
