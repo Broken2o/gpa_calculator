@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import '../widget/Button_Container.dart';
+import 'package:gpa_calculator/widget/dialog.dart';
+import '../widget/button_container.dart';
+import 'package:gpa_calculator/widget/field.dart';
 
 class GPA_Calculator extends StatefulWidget {
   final int subjectCount;
@@ -108,24 +110,15 @@ class _GPACalculator extends State<GPA_Calculator> {
                     child: Row(
                       children: [
                         Expanded(
-                          child: TextField(
-                            controller: markControllers[index],
-                            style:  const TextStyle(fontSize: 20, fontWeight: FontWeight.w300 , fontFamily: 'anticSlab' ),
-
-                            textAlign: TextAlign.center,
-                            decoration: const InputDecoration(labelText: 'Mark'),
-                            keyboardType: TextInputType.number,
-                          ),
+                          child:
+                          Field( controller: markControllers[index],labelText: 'Mark'),
                         ),
                         const SizedBox(width: 10),
                         Expanded(
-                          child: TextField(
-                            controller: creditControllers[index],
-                            style:  const TextStyle(fontSize: 20, fontWeight: FontWeight.w300 , fontFamily: 'anticSlab' ),
-
-                            textAlign: TextAlign.center,
-                            decoration: const InputDecoration(labelText: 'Credits'),
-                            keyboardType: TextInputType.number,
+                          child:
+                          Field(
+                              controller: creditControllers[index],
+                              labelText: 'Credits'
                           ),
                         ),
                       ],
@@ -137,31 +130,7 @@ class _GPACalculator extends State<GPA_Calculator> {
             Button_Container(
               onTap: () {
                 String gpa = calculateGPA();
-
-
-                showDialog(
-                  context: context,
-                  builder: (context) => AlertDialog(
-                    title: const Text('GPA' ,
-                      style:   TextStyle(fontSize: 20, fontWeight: FontWeight.w300  , fontFamily: 'pacifico'),
-                    ),
-                    content: Text('$gpa\n'),
-                    actions: [
-                      TextButton(
-                        onPressed: () => Navigator.pop(context),
-                        child: const Text('OK',
-                        style:   TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w300 ,
-                            color: Color(0xffFFFFFF),
-                              fontFamily: 'playball'
-                            ),
-                        ),
-                        ),
-
-                    ],
-                  ),
-                );
+                dialog(context, 'GPA', '$gpa\n');
               },
               text:'Calculate GPA',
             ),

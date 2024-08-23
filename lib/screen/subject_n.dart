@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gpa_calculator/screen/gpa_calculator.dart';
 import 'package:gpa_calculator/widget/Button_Container.dart';
+import 'package:gpa_calculator/widget/dialog.dart';
+import 'package:gpa_calculator/widget/field.dart';
 
 
 class SubjectInputScreen extends StatelessWidget {
@@ -27,13 +29,7 @@ class SubjectInputScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
           children: [
-            TextField(
-              style:  const TextStyle(fontSize: 20, fontWeight: FontWeight.w200 , fontFamily: 'anticSlab'),
-              textAlign: TextAlign.center,
-              controller: _subjectCountController,
-              keyboardType: TextInputType.number,
-              decoration: const InputDecoration(labelText: 'Number of Subjects' ),
-            ),
+            Field(controller: _subjectCountController, labelText: 'Number of Subjects'),
             const SizedBox(height: 30),
             Button_Container(
               onTap: () {
@@ -47,29 +43,7 @@ class SubjectInputScreen extends StatelessWidget {
                   );
                 }
                 else{
-                  showDialog(
-                    context: context,
-                    builder: (context) => AlertDialog(
-                      title:  const Text('Error' ,
-                      style:  TextStyle(fontSize: 20, fontWeight: FontWeight.w300 ,fontFamily: 'caveat' ),
-                      ),
-                      content: const Text('You should enter number of your subjects'),
-                      actions: [
-                        TextButton(
-                          onPressed: () => Navigator.pop(context),
-                          child:
-                          const Text('OK',
-                              style:   TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.w300 ,
-                                  color: Color(0xffffffff),
-                                  fontFamily: 'playball'
-                                ),
-                              ),
-                            ),
-                      ],
-                    ),
-                  );
+                  dialog(context, 'Error', 'You should enter number of your subjects');
                 }
               },
               text: "Next",
