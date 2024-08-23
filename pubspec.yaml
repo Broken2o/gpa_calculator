@@ -91,6 +91,10 @@ flutter:
     - family: anticSlab
       fonts:
         - asset: assets/fonts/anticSlab/AnticSlab-Regular.ttf
+    - family: lobster
+      fonts:
+        - asset: assets/fonts/lobster/Lobster-Regular.ttf
+
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #

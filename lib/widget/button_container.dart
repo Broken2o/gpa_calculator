@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class Button_Container extends StatelessWidget {
   const Button_Container({super.key,required this.text , required this.onTap});
@@ -25,12 +24,13 @@ class Button_Container extends StatelessWidget {
               children:[
 
                 Text( text,
-                  style: GoogleFonts.lobster(
-                    textStyle: const TextStyle(
+                  style: const TextStyle(
+                      fontFamily: 'lobster',
                       fontSize: 30,
                       fontWeight: FontWeight.w500 ,
                       color: Color(0xffffffff),
-                    ),
+
+
                   ),
                 ),
               ]
