@@ -127,7 +127,7 @@ class _GPACalculator extends State<GPA_Calculator> {
                 },
               ),
             ),
-            Button_Container(
+            ButtonContainer(
               onTap: () {
                 String gpa = calculateGPA();
                 dialog(context, 'GPA', '$gpa\n');

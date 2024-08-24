@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-class button_OK extends StatelessWidget {
-  button_OK({super.key});
+class ButtonOK extends StatelessWidget {
+  ButtonOK({super.key});
   @override
   Widget build(BuildContext context) {
     return TextButton(

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gpa_calculator/screen/subject_n.dart';
+import 'package:gpa_calculator/screen/subject_input.dart';
 
 
 void main() {

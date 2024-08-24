@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class Button_Container extends StatelessWidget {
-  const Button_Container({super.key,required this.text , required this.onTap});
+class ButtonContainer extends StatelessWidget {
+  const ButtonContainer({super.key,required this.text , required this.onTap});
   final String text;
   final Function() onTap;
 

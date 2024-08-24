@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gpa_calculator/widget/button_OK.dart';
+import 'package:gpa_calculator/widget/button_ok.dart';
 
 void dialog(BuildContext context, final String title , final String content,  ) {
   showDialog(
@@ -14,7 +14,7 @@ void dialog(BuildContext context, final String title , final String content,  ) 
         ),
       ),
       content:  Text(content),
-      actions: [button_OK()],
+      actions: [ButtonOK()],
     ),
   );
 }
