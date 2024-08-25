@@ -31,7 +31,7 @@ class SubjectInputScreen extends StatelessWidget {
           children: [
             Field(controller: _subjectCountController, labelText: 'Number of Subjects'),
             const SizedBox(height: 30),
-            Button_Container(
+            ButtonContainer(
               onTap: () {
                 int n = int.tryParse(_subjectCountController.text) ?? 0;
                 if (n > 0) {
