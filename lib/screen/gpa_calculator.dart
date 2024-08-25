@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:gpa_calculator/widget/dialog.dart';
 import '../widget/button_container.dart';
 import 'package:gpa_calculator/widget/field.dart';
-import 'package:gpa_calculator/widget/mark_function.dart';
+import 'package:gpa_calculator/widget/calculate_gpa.dart';
+
 
 class GPA_Calculator extends StatefulWidget {
   final int subjectCount;
@@ -36,42 +37,7 @@ class _GPACalculator extends State<GPA_Calculator> {
     super.dispose();
   }
 
-  String calculateGPA() {
-    double totalGradePoints = 0;
-    int totalCredits = 0;
 
-    for (int i = 0; i < widget.subjectCount; i++) {
-      double mark = double.tryParse(markControllers[i].text) ?? 0.0;
-      int credits = int.tryParse(creditControllers[i].text) ?? 0;
-      double grade = markfunction(mark);
-
-
-
-
-      totalGradePoints += grade * credits;
-      totalCredits += credits;
-    }
-    double gpa = totalCredits == 0 ? 0 : totalGradePoints / totalCredits;
-    String s;
-
-    if (gpa < 2.00) {
-      s = "F, NOT good you can do better than that";
-    }
-    else if (gpa < 2.50) {
-      s = "D, Good but you can do better than that";
-    }
-    else if (gpa < 3.00) {
-      s = "C, Good";
-    }
-    else if (gpa < 3.50) {
-      s = "B, Very good";
-    }
-    else {
-      s = "A, Excellent";
-    }
-
-    return "Your GPA is ${gpa.toStringAsFixed(2)}\n$s";
-  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -118,7 +84,7 @@ class _GPACalculator extends State<GPA_Calculator> {
             ),
             ButtonContainer(
               onTap: () {
-                String gpa = calculateGPA();
+                String gpa = calculateGPA(widget.subjectCount ,markControllers,creditControllers);
                 dialog(context, 'GPA', '$gpa\n');
               },
               text:'Calculate GPA',
